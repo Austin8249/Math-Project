@@ -171,16 +171,15 @@
                             </msup>
                             <mo id="kop"></mo>
                             <mn id="k"></mn>
-                            </math>
-                            <h3>Vertex:</h3>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        </math>
+                        <h3>Vertex:</h3>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mo>(</mo>
                             <mn id="ha"></mn>
                             <mo>,</mo>
                             <mn id="ka"></mn>
                             <mo>)</mo>
                             <math>
-                                
                     </div>
                     <div id="Vertex" class="tab-pane fade in">
                         <form>
@@ -204,6 +203,29 @@
                             <mi>x</mi>
                             <mo>)</mo>
                             <mo>=</mo>
+                            <mn id="aval"></mn>
+                            <msup>
+                                <mrow>
+                                    <mo>(</mo>
+                                    <mi>x</mi>
+                                    <mo id="hvalop"></mo>
+                                    <mn id="hval"></mn>
+                                    <mo>)</mo>
+                                </mrow>
+                                <mrow>
+                                    <mn>2</mn>
+                                </mrow>
+                            </msup>
+                            <mo id="kvalop"></mo>
+                            <mn id="kval"></mn>
+                        </math>
+                        <br>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <mi>x</mi>
+                            <mo>)</mo>
+                            <mo>=</mo>
                             <mn id="aver"></mn>
                             <msup>
                                 <mi>x</mi>
@@ -217,20 +239,25 @@
                             <mo id="opa"></mo>
                             <mn id="cve"></mn>
                         </math>
+                        <h3>Vertex:</h3>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mo>(</mo>
+                            <mn id="hver"></mn>
+                            <mo>,</mo>
+                            <mn id="kver"></mn>
+                            <mo>)</mo>
+                            <math>
                     </div>
                 </div>
         </div>
-    </div>
-    <div class="pull-right">
-        <img src="quad.png" class="img-rounded pull-right thumbnail">
-    </div>
+        <img src="quad.png" class="img-rounded pull-left thumbnail">
 </body>
 <script>
     (function () {
         function abc() {
-            var av = parseInt(document.getElementById('a').value);
-            var bv = parseInt(document.getElementById('b').value);
-            var cv = parseInt(document.getElementById('c').value);
+            var av = Number(document.getElementById('a').value);
+            var bv = Number(document.getElementById('b').value);
+            var cv = Number(document.getElementById('c').value);
             var oper;
             var h = (-1 * bv) / (2 * av);
             var k = ((av * (Math.pow(h, 2))) + (bv * h) + cv);
@@ -298,24 +325,50 @@
     })();
     (function () {
         function ahk() {
-            var ave = parseInt(document.getElementById('ave').value);
-            var hve = parseInt(document.getElementById('hve').value);
-            var kve = parseInt(document.getElementById('kve').value);
+            var ave = Number(document.getElementById('ave').value);
+            var hve = Number(document.getElementById('hve').value);
+            var kve = Number(document.getElementById('kve').value);
             var opa;
             var operveb;
-            var hve = 1 * hve;
-            var aver = 1 * ave;
+            var hval = hve;
+            var kval = kve;
+            var aval = ave;
+            var aver = ave;
+            var kver = kve;
+            var hver = hve;
             var bve = hve + hve;
             var bve = bve * ave;
             var cve = hve * hve;
             var cve = cve * ave;
             var cve = cve + kve;
+
+            if (hval > 0) {
+                hvalop = "+";
+            } else if (hval == 0) {
+                hvalop = "";
+                hval = "";
+            } else if (hval < 0) {
+                hvalop = "-";
+                hval = Math.abs(hval);
+            }
+            if (kval > 0) {
+                kvalop = "+";
+            } else if (kval == 0) {
+                kvalop = "";
+                kval = "";
+            } else if (kval < 0) {
+                kvalop = "-";
+                kval = Math.abs(kval);
+            }
+
+
+
             if (cve > 0) {
                 opa = "+";
             } else if (cve == 0) {
                 opa = "";
                 cve = "";
-            } else if (cv < 0) {
+            } else if (cve < 0) {
                 opa = "-";
                 cve = Math.abs(cve);
             } else {
@@ -331,6 +384,13 @@
                 opb = "-";
                 bve = Math.abs(bve);
             }
+            document.getElementById("kvalop").innerHTML = kvalop;
+            document.getElementById("hvalop").innerHTML = hvalop;
+            document.getElementById("aval").innerHTML = aval;
+            document.getElementById("hval").innerHTML = hval;
+            document.getElementById("kval").innerHTML = kval;
+            document.getElementById("kver").innerHTML = kver;
+            document.getElementById("hver").innerHTML = hver;
             document.getElementById("aver").innerHTML = aver;
             document.getElementById("bve").innerHTML = bve;
             document.getElementById("cve").innerHTML = cve;
