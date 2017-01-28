@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>&lt;Math&gt;</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="ISO-8859-1">
+    <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|VT323&amp;subset=greek,greek-ext" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Home.Html">
+                <h3 style="margin:5px;">&lt;Math&gt;</h3>
+            </a>
+        </div>
+        <form class="navbar-form navbar-right" action="http://www.example.com/search.php">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="../Algebra.html">
+                    <h4>Basic Algebra</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../probandstat.html">
+                    <h4>Probability and Statistics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../physics.html">
+                    <h4>Physics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../precal.html">
+                    <h4>Pre-Calculus</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../Geometry.html">
+                    <h4>Geometry</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../Characters.html">
+                    <h4>Math Characters</h4>
+                </a>
+            </li>
+        </ul>
+</nav>
+
+<body>
+    <div class="col-md-12">
+        <div class="pull-left">
+            <h1>Quadratics</h1>
+            <h3 style="margin:15px;">Standard</h3>
+            <h3 style="margin:15px;">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>x</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <msup>
+                        <mi>x</mi>
+                        <mrow>
+                            <mn>2</mn>
+                        </mrow>
+                    </msup>
+                    <mo>+</mo>
+                    <mi>b</mi>
+                    <mi>x</mi>
+                    <mo>+</mo>
+                    <mi>c</mi>
+                </math>
+            </h3>
+            <h3 style="margin:15px;">Vertex</h3>
+            <h3 style="margin:15px;">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>x</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <msup>
+                        <mrow>
+                            <mo>(</mo>
+                            <mi>x</mi>
+                            <mo>-</mo>
+                            <mi>h</mi>
+                            <mo>)</mo>
+                        </mrow>
+                        <mrow>
+                            <mn>2</mn>
+                        </mrow>
+                    </msup>
+                    <mo>+</mo>
+                    <mi>k</mi>
+                </math>
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#Standard">Standard</a></li>
+                    <li><a data-toggle="tab" href="#Vertex">Vertex</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="Standard" class="tab-pane fade in active">
+                        <form>
+                            <div class="form-group">
+                                <label>a:</label>
+                                <input type="text" class="form-control" id="a">
+                            </div>
+                            <div class="form-group">
+                                <label>b:</label>
+                                <input type="text" class="form-control" id="b">
+                            </div>
+                            <div class="form-group">
+                                <label>c:</label>
+                                <input type="text" class="form-control" id="c">
+                            </div>
+                            <input type="button" class="btn btn-default" name="submit" value="Submit" id="submitabc"></input>
+                        </form>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <mi>x</mi>
+                            <mo>)</mo>
+                            <mo>=</mo>
+                            <mn id="av"></mn>
+                            <msup>
+                                <mi>x</mi>
+                                <mrow>
+                                    <mn>2</mn>
+                                </mrow>
+                            </msup>
+                            <mo id="bvop"></mo>
+                            <mn id="bv"></mn>
+                            <mi>x</mi>
+                            <mo id="oper"></mo>
+                            <mn id="cv"></mn>
+                        </math>
+                        <br>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <mi>x</mi>
+                            <mo>)</mo>
+                            <mo>=</mo>
+                            <mn id="av"></mn>
+                            <msup>
+                                <mrow>
+                                    <mo>(</mo>
+                                    <mi>x</mi>
+                                    <mo id="hop"></mo>
+                                    <mn id="h"></mn>
+                                    <mo>)</mo>
+                                </mrow>
+                                <mrow>
+                                    <mn>2</mn>
+                                </mrow>
+                            </msup>
+                            <mo id="kop"></mo>
+                            <mn id="k"></mn>
+                            </math>
+                            <h3>Vertex:</h3>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mo>(</mo>
+                            <mn id="ha"></mn>
+                            <mo>,</mo>
+                            <mn id="ka"></mn>
+                            <mo>)</mo>
+                            <math>
+                                
+                    </div>
+                    <div id="Vertex" class="tab-pane fade in">
+                        <form>
+                            <div class="form-group">
+                                <label>a:</label>
+                                <input type="text" class="form-control" id="ave">
+                            </div>
+                            <div class="form-group">
+                                <label>h:</label>
+                                <input type="text" class="form-control" id="hve">
+                            </div>
+                            <div class="form-group">
+                                <label>k:</label>
+                                <input type="text" class="form-control" id="kve">
+                            </div>
+                            <input type="button" class="btn btn-default" name="submit" value="Submit" id="submitahk"></input>
+                        </form>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <mi>x</mi>
+                            <mo>)</mo>
+                            <mo>=</mo>
+                            <mn id="aver"></mn>
+                            <msup>
+                                <mi>x</mi>
+                                <mrow>
+                                    <mn>2</mn>
+                                </mrow>
+                            </msup>
+                            <mo id="opb"></mo>
+                            <mn id="bve"></mn>
+                            <mi>x</mi>
+                            <mo id="opa"></mo>
+                            <mn id="cve"></mn>
+                        </math>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="pull-right">
+        <img src="quad.png" class="img-rounded pull-right thumbnail">
+    </div>
+</body>
+<script>
+    (function () {
+        function abc() {
+            var av = parseInt(document.getElementById('a').value);
+            var bv = parseInt(document.getElementById('b').value);
+            var cv = parseInt(document.getElementById('c').value);
+            var oper;
+            var h = (-1 * bv) / (2 * av);
+            var k = ((av * (Math.pow(h, 2))) + (bv * h) + cv);
+            var h = h * -1
+            document.getElementById("ka").innerHTML = k;
+            document.getElementById("ha").innerHTML = h;
+            var h = h * -1
+
+            if (bv > 0) {
+                bvop = "+";
+            } else if (bv == 0) {
+                bvop = "";
+                bv = "";
+            } else if (bv < 0) {
+                bvop = "-";
+                bv = Math.abs(bv);
+            } else {
+                bvop = "error"
+            }
+            if (cv > 0) {
+                oper = "+";
+            } else if (cv == 0) {
+                oper = "";
+                cv = "";
+            } else if (cv < 0) {
+                oper = "-";
+                cv = Math.abs(cv);
+            } else {
+                oper = "error"
+            }
+            if (h > 0) {
+                hop = "+";
+            } else if (h == 0) {
+                hop = "";
+                h = "";
+            } else if (h < 0) {
+                hop = "-";
+                h = Math.abs(h);
+            } else {
+                hop = "error"
+            }
+            if (k > 0) {
+                kop = "+";
+            } else if (k == 0) {
+                kop = "";
+                k = "";
+            } else if (k < 0) {
+                kop = "-";
+                k = Math.abs(k);
+            } else {
+                kop = "error"
+            }
+            document.getElementById("av").innerHTML = av;
+            document.getElementById("bv").innerHTML = bv;
+            document.getElementById("cv").innerHTML = cv;
+            document.getElementById("h").innerHTML = h;
+            document.getElementById("k").innerHTML = k;
+            document.getElementById("oper").innerHTML = oper;
+            document.getElementById("hop").innerHTML = hop;
+            document.getElementById("kop").innerHTML = kop;
+            document.getElementById("bvop").innerHTML = bvop;
+        }
+        document.getElementById("submitabc").addEventListener("click", function () {
+            abc();
+        });
+    })();
+    (function () {
+        function ahk() {
+            var ave = parseInt(document.getElementById('ave').value);
+            var hve = parseInt(document.getElementById('hve').value);
+            var kve = parseInt(document.getElementById('kve').value);
+            var opa;
+            var operveb;
+            var hve = 1 * hve;
+            var aver = 1 * ave;
+            var bve = hve + hve;
+            var bve = bve * ave;
+            var cve = hve * hve;
+            var cve = cve * ave;
+            var cve = cve + kve;
+            if (cve > 0) {
+                opa = "+";
+            } else if (cve == 0) {
+                opa = "";
+                cve = "";
+            } else if (cv < 0) {
+                opa = "-";
+                cve = Math.abs(cve);
+            } else {
+                opa = "error"
+            }
+
+            if (bve > 0) {
+                opb = "+";
+            } else if (bve == 0) {
+                opb = "";
+                bve = "";
+            } else if (bve < 0) {
+                opb = "-";
+                bve = Math.abs(bve);
+            }
+            document.getElementById("aver").innerHTML = aver;
+            document.getElementById("bve").innerHTML = bve;
+            document.getElementById("cve").innerHTML = cve;
+            document.getElementById("opa").innerHTML = opa;
+            document.getElementById("opb").innerHTML = opb;
+        }
+        document.getElementById("submitahk").addEventListener("click", function () {
+            ahk();
+        });
+    })();
+</script>
+
+</html>
