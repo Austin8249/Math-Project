@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>&lt;Math&gt;</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="ISO-8859-1">
+    <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|VT323&amp;subset=greek,greek-ext" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Home.Html">
+                <h3 style="margin:5px;">&lt;Math&gt;</h3>
+            </a>
+        </div>
+        <form class="navbar-form navbar-right" action="http://www.example.com/search.php">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="../Algebra.html">
+                    <h4>Basic Algebra</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../probandstat.html">
+                    <h4>Probability and Statistics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../physics.html">
+                    <h4>Physics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../precal.html">
+                    <h4>Pre-Calculus</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../Geometry.html">
+                    <h4>Geometry</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../Characters.html">
+                    <h4>Math Characters</h4>
+                </a>
+            </li>
+        </ul>
+</nav>
+
+<body onload="add()">
+    <h1>Data Set Tool</h1>
+    <h4># of numbers</h4>
+    <div class="form-group col-sm-1">
+    <input id = "n" type="text" class="form-control"></input>
+    <div class="form-group">
+    <button class="bnt bnt-default">Submit</button>
+    <script>
+        var xarray = [15, 16, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 27, 29];
+        var yarray = [2.6, 2.2, 2.9, 2.9, 3.4, 2.4, 3.7, 1.9, 3.6, 2.1, 3.5, 2.0, 2.8, 3.8, 2.2, 4, 2.4, 3.8, 3.3, 4.2];
+        var n = xarray.length;
+        n = parseFloat(n);
+        console.log("n=" + n);
+
+            
+            var xysum = 0;
+            for (var i = 0; i < xarray.length; i++) {
+                xysum += (xarray[i] * yarray[i]);
+            }
+            var xysum = parseFloat(xysum);
+            console.log("xy=" + xysum);
+        
+            var xsum;
+            var xsum = xarray.reduce(add, 0);
+
+            function add(a, b) {
+                return a + b;
+            }
+            var xsum = parseFloat(xsum);
+            console.log("x=" + xsum)
+        
+            var ysum;
+            var ysum = yarray.reduce(add, 0);
+            var ysum = parseFloat(ysum);
+            console.log("y=" + ysum);
+        
+            var x2sum = 0;
+            for (var i = 0; i < xarray.length; i++) {
+                x2sum += Math.pow(xarray[i], 2);
+            }
+            var x2sum = parseFloat(x2sum);
+            console.log("x^2=" + x2sum);
+ 
+            var y2array;
+            var y2sum = 0;
+            for (var i = 0; i < yarray.length; i++) {
+                y2sum += Math.pow(yarray[i], 2);
+            }
+            var y2sum = parseFloat(y2sum);
+            console.log("y^2=" + y2sum);
+        
+            var rtop = (n*xysum-(xsum*ysum));
+            var rleft = Math.sqrt((n*x2sum-(Math.pow(xsum, 2))));
+            var rright = Math.sqrt((n*y2sum-(Math.pow(ysum, 2))));
+ 
+            rbottom =  rleft*rright;
+
+            var r = rtop/rbottom;
+            var r2 = Math.pow(r, 2);
+            var r = parseFloat(r);
+            var r2 = parseFloat(r2);
+            console.log("r^2=" + r2);
+            console.log("r=" + r);
+            var xbar = xsum / n;
+            var ybar = ysum / n;
+            console.log("xbar=" + xbar);
+            console.log("ybar=" + ybar);
+            var b = rtop/Math.pow(rleft, 2);
+            var a = ybar-(b*xbar);
+            console.log("a=" + a);
+            console.log("b=" + b);
+            console.log("y=" + b + "x" + "+" + a)
+    </script>
+
+</html>
