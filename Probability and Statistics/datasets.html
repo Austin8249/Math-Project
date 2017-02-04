@@ -62,8 +62,9 @@
 <body>
     <h1>Data Set Tool</h1>
     <div class="form-group col-sm-3">
-        <!--<h4># of numbers</h4>
-        <input id="num" type="text" class="form-control"></input>-->
+        <h4># of numbers</h4>
+        <input id="num" type="text" class="form-control"></input>
+        <input type="button" class="btn btn-default" name="submit" value="Submit" id="submitn"></input>
         <h4> please enter the x values like this "1, 2, 3"</h4>
         <input id="xvalues" type="text" class="form-control"></input>
         <h4> please enter the y values like this "1, 2, 3"</h4>
@@ -73,213 +74,228 @@
     </div>
     <div class="col-sm-2 pull-left">
         <h4>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <mrow>
-                <mi>n</mi>
-                <mo>=</mo>
-                <mn id="n"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>&#931;</mi>
-                <mi>x</mi>
-                <mo>=</mo>
-                <mn id="xsum"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>&#931;</mi>
-                <mi>y</mi>
-                <mo>=</mo>
-                <mn id="ysum"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>&#931;</mi>
-                <msup>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>n</mi>
+                    <mo>=</mo>
+                    <mn id="n"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>&#931;</mi>
                     <mi>x</mi>
-                    <mn>2</mn>
-                </msup>
-                <mo>=</mo>
-                <mn id="x2sum"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>&#931;</mi>
-                <msup>
+                    <mo>=</mo>
+                    <mn id="xsum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>&#931;</mi>
                     <mi>y</mi>
-                    <mn>2</mn>
-                </msup>
-                <mo>=</mo>
-                <mn id="y2sum"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>&#931;</mi>
-                <mi>x</mi>
-                <mi>y</mi>
-                <mo>=</mo>
-                <mn id="xysum"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>r</mi>
-                <mo>=</mo>
-                <mn id="r"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <msup>
+                    <mo>=</mo>
+                    <mn id="ysum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>&#931;</mi>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mn id="x2sum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>&#931;</mi>
+                    <msup>
+                        <mi>y</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mn id="y2sum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>&#931;</mi>
+                    <mi>x</mi>
+                    <mi>y</mi>
+                    <mo>=</mo>
+                    <mn id="xysum"></mn>
+                </mrow>
+                <br>
+                <mrow>
                     <mi>r</mi>
-                    <mn>2</mn>
-                </msup>
-                <mo>=</mo>
-                <mn id="r2"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>x&#x0304;</mi>
-                <mo>=</mo>
-                <mn id="xbar"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>y&#x0304;</mi>
-                <mo>=</mo>
-                <mn id="ybar"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>a</mi>
-                <mo>=</mo>
-                <mn id="a"></mn>
-            </mrow>
-            <br>
-            <mrow>
-                <mi>b</mi>
-                <mo>=</mo>
-                <mn id="b"></mn>
-            </mrow>
-        </math>
+                    <mo>=</mo>
+                    <mn id="r"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <msup>
+                        <mi>r</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mn id="r2"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>x&#x0304;</mi>
+                    <mo>=</mo>
+                    <mn id="xbar"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>y&#x0304;</mi>
+                    <mo>=</mo>
+                    <mn id="ybar"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mn id="a"></mn>
+                </mrow>
+                <br>
+                <mrow>
+                    <mi>b</mi>
+                    <mo>=</mo>
+                    <mn id="b"></mn>
+                </mrow>
+            </math>
         </h4>
     </div>
     <div class="col-sm-6 pull-left">
-        <h3><u>X-Array</u></h3>
+        <h3>
+            <u>X-Array</u>
+        </h3>
         <h4 id="xarray"></h4>
-        <h3><u>Y-Array</u></h3>
+        <h3>
+            <u>Y-Array</u>
+        </h3>
         <h4 id="yarray"></h4>
     </div>
     <script>
         (function () {
-            function abc() {
-                var xarray = [10, 20, 30, 40];
-                var yarray = [1, 2, 3, 4];
-                var n = xarray.length;
-                n = parseFloat(n);
-
-
-                var xysum = 0;
-                for (var i = 0; i < xarray.length; i++) {
-                    xysum += (xarray[i] * yarray[i]);
+                function ninput(num) {
+                    var num = Number(document.getElementById('num').value);
+                    for (var i = 0; i < num; i++) {
+                        
+                    }
+                    console.log(num);
                 }
-                var xysum = parseFloat(xysum);
+                    document.getElementById("submitn").addEventListener("click", function () {
+                        ninput();
+                    });
+                })();
+            (function () {
+                function abc() {
+                    var xarray = [15, 16, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 27, 29];
+                    var yarray = [2.6, 2.2, 2.9, 2.9, 3.4, 2.4, 3.7, 1.9, 3.6, 2.1, 3.5, 2.0, 2.8, 3.8, 2.2, 4.0, 2.4, 3.8, 3.3, 4.2];
+                    var n = xarray.length;
+                    n = parseFloat(n);
+
+
+                    var xysum = 0;
+                    for (var i = 0; i < xarray.length; i++) {
+                        xysum += (xarray[i] * yarray[i]);
+                    }
+                    var xysum = parseFloat(xysum);
 
 
 
-                var xsum;
-                var xsum = xarray.reduce(add, 0);
+                    var xsum;
+                    var xsum = xarray.reduce(add, 0);
 
-                function add(a, b) {
-                    return a + b;
+                    function add(a, b) {
+                        return a + b;
+                    }
+                    var xsum = parseFloat(xsum);
+
+
+
+                    var ysum;
+                    var ysum = yarray.reduce(add, 0);
+                    var ysum = parseFloat(ysum);
+
+
+
+                    var x2sum = 0;
+                    for (var i = 0; i < xarray.length; i++) {
+                        x2sum += Math.pow(xarray[i], 2);
+                    }
+                    var x2sum = parseFloat(x2sum);
+
+
+
+                    var y2array;
+                    var y2sum = 0;
+                    for (var i = 0; i < yarray.length; i++) {
+                        y2sum += Math.pow(yarray[i], 2);
+                    }
+                    var y2sum = parseFloat(y2sum);
+
+
+
+                    var rtop = (n * xysum - (xsum * ysum));
+                    var rleft = Math.sqrt((n * x2sum - (Math.pow(xsum, 2))));
+                    var rright = Math.sqrt((n * y2sum - (Math.pow(ysum, 2))));
+                    rbottom = rleft * rright;
+                    var r = rtop / rbottom;
+                    var r2 = Math.pow(r, 2);
+                    var r = parseFloat(r);
+                    var r2 = parseFloat(r2);
+
+
+
+                    var xbar = xsum / n;
+                    var ybar = ysum / n;
+
+
+
+                    var b = rtop / Math.pow(rleft, 2);
+                    var a = ybar - (b * xbar);
+
+
+
+                    //console.log("n=" + n);
+                    //console.log("x=" + xsum)
+                    //console.log("y=" + ysum);
+                    //console.log("x^2=" + x2sum);
+                    //console.log("y^2=" + y2sum);
+                    //console.log("xy=" + xysum);
+                    //console.log("r=" + r);
+                    //console.log("r^2=" + r2);
+                    //console.log("a=" + a);
+                    //console.log("b=" + b);
+                    var xsum = Math.round(xsum * 100) / 100;
+                    var ysum = Math.round(ysum * 100) / 100;
+                    var x2sum = Math.round(x2sum * 100) / 100;
+                    var y2sum = Math.round(y2sum * 100) / 100;
+                    var xysum = Math.round(xysum * 100) / 100;
+                    var r = Math.round(r * 1000) / 1000;
+                    var r2 = Math.round(r2 * 1000) / 1000;
+                    var a = Math.round(a * 1000) / 1000;
+                    var b = Math.round(b * 1000) / 1000;
+
+                    document.getElementById("n").innerHTML = n;
+                    document.getElementById("xarray").innerHTML = xarray;
+                    document.getElementById("yarray").innerHTML = yarray;
+                    document.getElementById("xsum").innerHTML = xsum;
+                    document.getElementById("ysum").innerHTML = ysum;
+                    document.getElementById("xbar").innerHTML = xbar;
+                    document.getElementById("ybar").innerHTML = ybar;
+                    document.getElementById("x2sum").innerHTML = x2sum;
+                    document.getElementById("y2sum").innerHTML = y2sum;
+                    document.getElementById("xysum").innerHTML = xysum;
+                    document.getElementById("a").innerHTML = a;
+                    document.getElementById("b").innerHTML = b;
+                    document.getElementById("r").innerHTML = r;
+                    document.getElementById("r2").innerHTML = r2;
                 }
-                var xsum = parseFloat(xsum);
-
-
-
-                var ysum;
-                var ysum = yarray.reduce(add, 0);
-                var ysum = parseFloat(ysum);
-
-
-
-                var x2sum = 0;
-                for (var i = 0; i < xarray.length; i++) {
-                    x2sum += Math.pow(xarray[i], 2);
-                }
-                var x2sum = parseFloat(x2sum);
-
-
-
-                var y2array;
-                var y2sum = 0;
-                for (var i = 0; i < yarray.length; i++) {
-                    y2sum += Math.pow(yarray[i], 2);
-                }
-                var y2sum = parseFloat(y2sum);
-
-
-
-                var rtop = (n * xysum - (xsum * ysum));
-                console.log(rtop);
-                var rleft = Math.sqrt((n * x2sum - (Math.pow(xsum, 2))));
-                var rright = Math.sqrt((n * y2sum - (Math.pow(ysum, 2))));
-                rbottom = rleft * rright;
-                var r = rtop / rbottom;
-                var r2 = Math.pow(r, 2);
-                var r = parseFloat(r);
-                var r2 = parseFloat(r2);
-
-
-
-                var xbar = xsum / n;
-                var ybar = ysum / n;
-
-
-
-                var b = rtop / Math.pow(rleft, 2);
-                var a = ybar - (b * xbar);
-
-
-
-                //console.log("n=" + n);
-                //console.log("x=" + xsum)
-                //console.log("y=" + ysum);
-                //console.log("x^2=" + x2sum);
-                //console.log("y^2=" + y2sum);
-                //console.log("xy=" + xysum);
-                //console.log("r=" + r);
-                //console.log("r^2=" + r2);
-                //console.log("a=" + a);
-                //console.log("b=" + b);
-                var xsum = Math.round(xsum * 100) / 100;
-                var ysum = Math.round(ysum * 100) / 100;
-                var x2sum = Math.round(x2sum * 100) / 100;
-                var y2sum = Math.round(y2sum * 100) / 100;
-                var xysum = Math.round(xysum * 100) / 100;
-                var r = Math.round(r * 1000) / 1000;
-                var r2 = Math.round(r2 * 1000) / 1000;
-                var a = Math.round(a * 1000) / 1000;
-                var b = Math.round(b * 1000) / 1000;
-
-                document.getElementById("n").innerHTML = n;
-                document.getElementById("xarray").innerHTML = xarray;
-                document.getElementById("yarray").innerHTML = yarray;
-                document.getElementById("xsum").innerHTML = xsum;
-                document.getElementById("ysum").innerHTML = ysum;
-                document.getElementById("xbar").innerHTML = xbar;
-                document.getElementById("ybar").innerHTML = ybar;
-                document.getElementById("x2sum").innerHTML = x2sum;
-                document.getElementById("y2sum").innerHTML = y2sum;
-                document.getElementById("xysum").innerHTML = xysum;
-                document.getElementById("a").innerHTML = a;
-                document.getElementById("b").innerHTML = b;
-                document.getElementById("r").innerHTML = r;
-                document.getElementById("r2").innerHTML = r2;
-            }
-            document.getElementById("submitxy").addEventListener("click", function () {
-                abc();
-            });
-        })();
+                document.getElementById("submitxy").addEventListener("click", function () {
+                    abc();
+                });
+            })();
     </script>
 
 </html>
