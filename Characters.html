@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>&lt;Math&gt;  Probability and Statistics</title>
+    <title>&lt;Math&gt; Probability and Statistics</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <script src="jquery.min.js"></script>
@@ -10,6 +10,11 @@
     <meta charset="ISO-8859-1">
     <script src="mspace.js"></script>
     <link href="googlefonts.css" rel="stylesheet">
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
 </head>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -69,19 +74,44 @@
         <li>&ne;</li>
         <li>&le;</li>
         <li>&ge;</li>
-        <li>&sigma;=&radic;((&sum;(x-&mu;)^2)/N)</li>
+        <li>&sigma;</li>
+        <li>&mu;</li>
     </ul>
     <h1>Libraries</h1>
-    <ul>
-        <li><a href="#"></a>Jquery</li>
-        <li><a href="#"></a>MathML</li>
-        <li><a href="#"></a>Bootstrap</li>
-        <li><a href="#"></a>Desmos</li>
-    </ul>
+
+            <a href="https://jquery.com/"><img src="img/jquery.png" class="img-rounded mySlides" style="width:256px"></a>
+
+            <a href="https://www.w3.org/Math/"><img src="img/mathml.png" class="img-rounded mySlides" style="width:256px"></a>
+
+            <a href="http://getbootstrap.com/"><img src="img/bootstrap.png" class="img-rounded mySlides" style="width:256px"></a>
+
+            <a href="https://www.desmos.com/"><img src="img/desmos.png" class="img-rounded mySlides" style="width:256px"></a>
+
     <h1>Cool Videos</h1>
     <ul>
-        <li><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&autoplay=1" frameborder="0" allowfullscreen></iframe></li>
-    <ul>
+        <li>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&autoplay=1"
+                frameborder="0" allowfullscreen></iframe>
+        </li>
+        <ul>
 </body>
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+            myIndex = 1
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 2 seconds
+    }
+</script>
 
 </html>
