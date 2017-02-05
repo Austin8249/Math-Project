@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>&lt;Math&gt; Probability and Statistics</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <meta charset="ISO-8859-1">
+    <script src="../mspace.js"></script>
+    <link href="../googlefonts.css" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../home.Html">
+                <h3 style="margin:5px;">&lt;Math&gt;</h3>
+            </a>
+        </div>
+        <form class="navbar-form navbar-right" action="http://www.example.com/search.php">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="../algebra.html">
+                    <h4>Basic Algebra</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../probandstat.html">
+                    <h4>Probability and Statistics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../physics.html">
+                    <h4>Physics</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../precal.html">
+                    <h4>Pre-Calculus</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../geometry.html">
+                    <h4>Geometry</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../characters.html">
+                    <h4>Math Characters</h4>
+                </a>
+            </li>
+        </ul>
+</nav>
+
+<body>
+    <h1>Single Data Set Tool</h1>
+    <div class="form-group col-sm-4">
+        <h4> please enter the x values like this "1, 2, 3"</h4>
+        <input id="xvalues" type="text" class="form-control"></input>
+        <input type="button" class="btn btn-default" name="submit" value="Submit" id="submitxy"></input>
+    </div>
+    <div class="col-sm-3 pull-left">
+        <h4>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Frequency</mi>
+                    <mo>=</mo>
+                    <mn id="n"></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Mean</mi>
+                    <mo>=</mo>
+                    <mn id="xbar"></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Median</mi>
+                    <mo>=</mo>
+                    <mn id="median"></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Mode</mi>
+                    <mo>=</mo>
+                    <mn id="mode"></mn>
+                    <mi>|</mi>
+                    <mn id=maxCount></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>&#931;</mi>
+                    <mi>x</mi>
+                    <mo>=</mo>
+                    <mn id="xsum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>&#931;</mi>
+                    <msup>
+                        <mi>x</mi>
+                        <mrow>
+                            <mn>2</mn>
+                        </mrow>
+                    </msup>
+                    <mo>=</mo>
+                    <mn id="x2sum"></mn>
+                </mrow>
+                <br>
+                <mrow>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <msup>
+                    <mi>s</mi>
+                    <mrow>
+                        <mn>2</mn>
+                    </mrow>
+                </msup>
+                <mo>=</mo>
+                <mn id="s2"></mn>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <msup>
+                    <mi>&sigma;</mi>
+                    <mrow>
+                        <mn>2</mn>
+                    </mrow>
+                </msup>
+                <mo>=</mo>
+                <mn id="sigma2"></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mn id="s"></mn>
+                </mrow>
+                <br>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>&sigma;</mi>
+                    <mo>=</mo>
+                    <mn id="sigma"></mn>
+                </mrow>
+                <br>
+            </math>
+        </h4>
+    </div>
+    <div class="col-sm-6 pull-left">
+        <h3>
+            <u>X-Array</u>
+        </h3>
+        <h4 id="xarray"></h4>
+    </div>
+    <br>
+    <div class="col-sm-10 pull-left">
+        <div class="col-sm-2">
+            <h4>Min</h4>
+        </div>
+        <div class="col-sm-2">
+            <h4>Q1</h4>
+        </div>
+        <div class="col-sm-2">
+            <h4>Q2</h4>
+        </div>
+        <div class="col-sm-2">
+            <h4>Q3</h4>
+        </div>
+        <div class="col-sm-2">
+            <h4>Max</h4>
+        </div>
+    </div>
+    <br>
+    <div class="col-sm-10 pull-left">
+        <div class="col-sm-2">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn id="minVal"></mn>
+            </math>
+        </div>
+        <div class="col-sm-2">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn id="q1"></mn>
+            </math>
+        </div>
+        <div class="col-sm-2">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn id="q2"></mn>
+            </math>
+        </div>
+        <div class="col-sm-2">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn id="q3"></mn>
+            </math>
+        </div>
+        <div class="col-sm-2">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn id="maxVal"></mn>
+            </math>
+        </div>
+    </div>
+    <script>
+        (function () {
+            function abc() {
+                var xvalue = document.getElementById('xvalues').value;
+                var xarray = JSON.parse("[" + xvalue + "]");
+                document.getElementById("xarray").innerHTML = xarray;
+                var n = xarray.length;
+                n = parseFloat(n);
+                document.getElementById("n").innerHTML = n;
+                if (n % 2 === 0) {
+                    xarray.shift();
+                } else {
+
+                }
+                var median;
+                var Q1;
+                var Q3;
+
+
+
+                var xsum;
+                var xsum = xarray.reduce(add, 0);
+
+                function add(a, b) {
+                    return a + b;
+                }
+                var xsum = parseFloat(xsum);
+
+                var x2sum = 0;
+                for (var i = 0; i < xarray.length; i++) {
+                    x2sum += Math.pow(xarray[i], 2);
+                }
+                var x2sum = parseFloat(x2sum);
+
+                var s2 = ((x2sum - (Math.pow(xsum, 2) / n))) / (n - 1);
+                var sigma2 = ((x2sum - (Math.pow(xsum, 2) / n))) / n;
+                var s = Math.sqrt(s2);
+                var sigma = Math.sqrt(sigma2);
+
+                var maxVal = Math.max.apply(Math, xarray);
+                var minVal = Math.min.apply(Math, xarray);
+                var xbar = xsum / n;
+
+                function mode(xarray) {
+                    if (xarray.length <= 1)
+                        return null;
+                    var modeMap = {};
+                    var maxEl = xarray[0],
+                        maxCount = 1;
+                    for (var i = 0; i < xarray.length; i++) {
+                        var el = xarray[i];
+                        if (modeMap[el] == null)
+                            modeMap[el] = 2;
+                        else
+                            modeMap[el]++;
+                        if (modeMap[el] > maxCount) {
+                            maxEl = el;
+                            maxCount = modeMap[el];
+                            document.getElementById("maxCount").innerHTML = maxCount - 1;
+                        }
+                    }
+                    return maxEl;
+                }
+                var mode = mode(xarray);
+
+
+                var xbar = Math.round(xbar * 100) / 100;
+                var xsum = Math.round(xsum * 100) / 100;
+                var x2sum = Math.round(x2sum * 100) / 100;
+                var s2 = Math.round(s2 * 1000) / 1000;
+                var sigma2 = Math.round(sigma2 * 1000) / 1000;
+                var s = Math.round(s * 1000) / 1000;
+                var sigma = Math.round(sigma * 1000) / 1000;
+
+                document.getElementById("q1").innerHTML = Q1;
+                document.getElementById("q2").innerHTML = median;
+                document.getElementById("q3").innerHTML = Q3;
+                document.getElementById("minVal").innerHTML = minVal;
+                document.getElementById("maxVal").innerHTML = maxVal;
+                document.getElementById("median").innerHTML = median;
+                document.getElementById("s2").innerHTML = s2;
+                document.getElementById("sigma2").innerHTML = sigma2;
+                document.getElementById("s").innerHTML = s;
+                document.getElementById("sigma").innerHTML = sigma;
+                document.getElementById("mode").innerHTML = mode;
+                document.getElementById("xsum").innerHTML = xsum;
+                document.getElementById("x2sum").innerHTML = x2sum;
+                document.getElementById("xbar").innerHTML = xbar;
+            }
+            document.getElementById("submitxy").addEventListener("click", function () {
+                abc();
+            });
+        })();
+    </script>
+
+</html>
