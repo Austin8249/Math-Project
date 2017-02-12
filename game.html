@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Game</title>
+</head>
+<style>
+
+</style>
+
+<body onload="drawCircle(100, 75), initEnemy()">
+    <canvas id="can" height="100" width="100" style="border:1px"></canvas>
+    <script>
+        document.getElementById('can').width = 800;
+        document.getElementById('can').height = 600;
+        var x;
+        var y;
+        var x2;
+        var y2;
+        x2 = 400;
+        y2 = 400;
+        x = 100;
+        y = 100;
+
+        function initEnemy() {
+            x2 = 400;
+            y2 = 400;
+            console.log(x2, y2);
+            var c2 = document.getElementById("can");
+            var ctx2 = c2.getContext("2d");
+            ctx2.beginPath();
+            ctx2.arc(x2, y2, 50, 0, 2 * Math.PI);
+            ctx2.stroke();
+        }
+
+        function drawCircle(x, y, x2, y2) {
+            window.x2 = x2;
+            window.y2 = y2;
+            console.log(x2, y2);
+            document.onkeydown = function (e) {
+                switch (e.keyCode) {
+                    case 37:
+                        x = x - 10;
+                        x2 = x2 + (Math.random * 1);
+                        y2 = y2 + (Math.random * 1);
+                        console.log(x2, y2);
+                        window.x = x;
+                        window.x2 = x2;
+                        window.y2 = y2;
+                        ctx.clearRect(0, 0, 800, 800);
+                        drawEnemy(x2, y2);
+                        drawCircle(x, y);
+                        break;
+                    case 38:
+                        y = y - 10;
+                        x2 = x2 + (Math.random * 1);
+                        y2 = y2 + (Math.random * 1);
+                        console.log(x2, y2);
+                        window.y = y;
+                        window.x2 = x2;
+                        window.y2 = y2;
+                        ctx.clearRect(0, 0, 800, 800);
+                        drawEnemy(x2, y2);
+                        drawCircle(x, y);
+                        break;
+                    case 39:
+                        x = x + 10;
+                        x2 = x2 + (Math.random * 1);
+                        y2 = y2 + (Math.random * 1);
+                        console.log(x2, y2);
+                        window.x = x;
+                        window.x2 = x2;
+                        window.y2 = y2;
+                        ctx.clearRect(0, 0, 800, 800);
+                        drawEnemy(x2, y2);
+                        drawCircle(x, y);
+                        break;
+                    case 40:
+                        y = y + 10;
+                        x2 = x2 + (Math.random * 1);
+                        y2 = y2 + (Math.random * 1);
+                        console.log(x2, y2);
+                        window.y = y;
+                        window.x2 = x2;
+                        window.y2 = y2;
+                        ctx.clearRect(0, 0, 800, 800);
+                        drawEnemy(x2, y2);
+                        drawCircle(x, y);
+
+                        break;
+                }
+            };
+
+            function drawEnemy(x2, y2) {
+                //ctx2.clearRect(0, 0, 800, 800);
+                var c2 = document.getElementById("can");
+                var ctx2 = c2.getContext("2d");
+                ctx2.beginPath();
+                ctx2.arc(x2, y2, 50, 0, 2 * Math.PI);
+                ctx2.stroke();
+            }
+
+
+
+
+
+            var c = document.getElementById("can");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(x, y, 50, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+
+
+
+
+
+
+        function colision(x, y, x2, y2) {
+            var circle1 = {
+                radius: 50,
+                x: x,
+                y: x
+            };
+            var circle2 = {
+                radius: 30,
+                x: x2,
+                y: y2
+            };
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                alert("You Died!");
+                console.log("you died");
+            }
+        }
+    </script>
+</body>
+
+</html>

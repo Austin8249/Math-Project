@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>&lt;Math&gt; Probability and Statistics</title>
+    <title>&lt;Math&gt; Single Data Set</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <script src="../jquery.min.js"></script>
@@ -229,24 +229,18 @@
                 var n = xarray.length;
                 n = parseFloat(n);
                 document.getElementById("n").innerHTML = n;
-                if (n % 2 === 0) {
-                    xarray.shift();
-                } else {
-
-                }
-                var median;
-                var Q1;
-                var Q3;
 
 
 
                 var xsum;
+                console.log(xarray);
                 var xsum = xarray.reduce(add, 0);
 
                 function add(a, b) {
                     return a + b;
                 }
                 var xsum = parseFloat(xsum);
+
 
                 var x2sum = 0;
                 for (var i = 0; i < xarray.length; i++) {
@@ -284,7 +278,123 @@
                     return maxEl;
                 }
                 var mode = mode(xarray);
+                var median;
+                var medianarray = xarray
+                if (n >= 3) {
+                    medianarray.shift();
+                    medianarray.pop();
+                    getMedian(medianarray);
 
+                } else if (n === 2) {
+                    median = ((medianarray[0] + medianarray[1]) / n);
+
+                } else {
+                    median = medianarray[0];
+
+                }
+
+                function getMedian(medianarray) {
+                    if (medianarray.length >= 3) {
+                        medianarray.shift();
+                        medianarray.pop();
+
+
+                        getMedian(medianarray);
+                    } else if (medianarray.length == 2) {
+
+                        median = ((medianarray[0] + medianarray[1]) / 2);
+
+                    } else {
+                        median = medianarray[0];
+
+                    }
+                }
+                /*var q1value = document.getElementById('xvalues').value;
+                var q1array = JSON.parse("[" + xvalue + "]");
+                var Q1;
+                var new_q1array = q1array.filter(function (x) {
+                    return x >= median;
+                });
+                console.log(new_q1array);
+
+
+                if (new_q1array.length >= 3) {
+                    new_q1array.shift();
+                    new_q1array.pop();
+                    getMedian(new_q1array);
+
+                } else if (new_q1array.length === 2) {
+                    Q1 = ((new_q1array[0] + new_q1array[1]) / n);
+
+                } else {
+                    Q1 = new_q1array[0];
+
+                }
+
+                function getMedian(new_q1array) {
+                    if (new_q1array.length >= 3) {
+                        new_q1array.shift();
+                        new_q1array.pop();
+
+
+                        getMedian(new_q1array);
+                    } else if (new_q1array.length == 2) {
+
+                        Q1 = ((new_q1array[0] + new_q1array[1]) / 2);
+
+                    } else {
+                        Q1 = new_q1array[0];
+
+                    }
+                }
+                */
+
+
+                //if the array value is greater than or equal to the median it should be removed and then the get median can be applied to the remaining values
+                /*var q3value = document.getElementById('xvalues').value;
+                var q3array = JSON.parse("[" + xvalue + "]");
+                var Q3;
+                var new_q3array = q3array.filter(function (x) {
+                    return x <= median;
+                });
+                console.log(new_q3array);
+
+
+                var medianarray = xarray
+                if (n >= 3) {
+                    medianarray.shift();
+                    medianarray.pop();
+                    getMedian(medianarray);
+
+                } else if (n === 2) {
+                    median = ((medianarray[0] + medianarray[1]) / n);
+
+                } else {
+                    median = medianarray[0];
+
+                }
+
+                function getMedian(medianarray) {
+                    if (medianarray.length >= 3) {
+                        medianarray.shift();
+                        medianarray.pop();
+
+
+                        getMedian(medianarray);
+                    } else if (medianarray.length == 2) {
+
+                        median = ((medianarray[0] + medianarray[1]) / 2);
+
+                    } else {
+                        median = medianarray[0];
+
+                    }
+                }
+                */
+
+
+
+                //if the array value is less than or equal to the median it should be removed and then the get median can be applied to the remaining values
 
                 var xbar = Math.round(xbar * 100) / 100;
                 var xsum = Math.round(xsum * 100) / 100;
@@ -294,9 +404,9 @@
                 var s = Math.round(s * 1000) / 1000;
                 var sigma = Math.round(sigma * 1000) / 1000;
 
-                document.getElementById("q1").innerHTML = Q1;
+                //document.getElementById("q1").innerHTML = Q1;
                 document.getElementById("q2").innerHTML = median;
-                document.getElementById("q3").innerHTML = Q3;
+                //document.getElementById("q3").innerHTML = Q3;
                 document.getElementById("minVal").innerHTML = minVal;
                 document.getElementById("maxVal").innerHTML = maxVal;
                 document.getElementById("median").innerHTML = median;
