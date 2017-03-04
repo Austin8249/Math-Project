@@ -1,0 +1,27 @@
+
+body {
+    background: #FFF;
+    text-align: center;
+    color: #000;
+}
+a{
+    color:blue;
+}
+.bar-wrapper {
+    height: 300px;
+    position: relative;
+}
+.bar {
+    position: relative;
+    bottom: 0;
+    width: 5px;
+    display: inline-block;
+    border: 1px solid red;
+    height: 5px;
+    border-bottom: 3px solid #fff;
+}
+#canvas {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+}

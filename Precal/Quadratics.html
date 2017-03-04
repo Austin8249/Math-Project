@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>&lt;Math&gt;  Pre-Calculus</title>
+    <title>&lt;Math&gt; Pre-Calculus</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <script src="../jquery.min.js"></script>
@@ -268,38 +268,41 @@
         <div id="calculator" style="width: 600px; height: 700px;" class="pull-right"></div>
         <br><br>
         <h3 style="margin:15px;">How to Convert Standard to Vertex:</h3>
-                <h3 style="margin:15px;">
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>h</mi>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mrow>
-                                <mi>-</mi>
-                                <mi>b</mi>
-                            </mrow>
-                            <mrow>
-                                <mn>2</mn>
-                                <mi>a</mi>
-                            </mrow>
-                        </mfrac>
-                    </math>
-                </h3>
-                <h3 style="margin:15px;">
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>k</mi>
-                        <mo>=</mo>
-                        <mi>f</mi>
-                        <mo>(</mo>
-                        <mi>h</mi>
-                        <mo>)</mo>
-                    </math>
-                </h3>
-                <!--<img src="quad.png" style="width: 500px; margin: 20px;" class="img-rounded pull-right thumbnail">-->
+        <h3 style="margin:15px;">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>h</mi>
+                <mo>=</mo>
+                <mfrac>
+                    <mrow>
+                        <mi>-</mi>
+                        <mi>b</mi>
+                    </mrow>
+                    <mrow>
+                        <mn>2</mn>
+                        <mi>a</mi>
+                    </mrow>
+                </mfrac>
+            </math>
+        </h3>
+        <h3 style="margin:15px;">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>k</mi>
+                <mo>=</mo>
+                <mi>f</mi>
+                <mo>(</mo>
+                <mi>h</mi>
+                <mo>)</mo>
+            </math>
+        </h3>
+        <!--<img src="quad.png" style="width: 500px; margin: 20px;" class="img-rounded pull-right thumbnail">-->
 </body>
 <script>
-  var elt = document.getElementById('calculator');
-  var calculator = Desmos.GraphingCalculator(elt);
-  calculator.setExpression({id:'graph1', latex:'y=x^2'});
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+    calculator.setExpression({
+        id: 'graph1',
+        latex: 'y=x^2'
+    });
     (function () {
         function abc() {
             var av = Number(document.getElementById('a').value);
@@ -369,6 +372,18 @@
             if (btest = 1) {
                 bv == "";
             }
+            /*
+            console.log(bv);
+            function one(value) {
+                while (value = 1) {
+                    value = "";
+                    return value;
+                }
+            }
+            a2 = one(a2);
+            av = one(av);
+            bv = one(bv);
+            console.log(bv);*/
             document.getElementById("a2").innerHTML = a2;
             document.getElementById("av").innerHTML = av;
             document.getElementById("bv").innerHTML = bv;
@@ -414,6 +429,7 @@
                 hval == "";
             } else if (hval < 0) {
                 hvalop = "+";
+                hval = Math.abs(hval);
             }
 
 
@@ -448,7 +464,20 @@
                 bve == "";
             } else if (bve < 0) {
                 opb = "+";
+                bve = Math.abs(bve);
             }
+            /*
+            function one(value) {
+                if (value = 1) {
+                    value = "";
+                    return value;
+                } else {
+                    return;
+                }
+            }
+            aver = one(aver);
+            bve = one(bve);
+            aval = one(aval);*/
             document.getElementById("kvalop").innerHTML = kvalop;
             document.getElementById("hvalop").innerHTML = hvalop;
             document.getElementById("aval").innerHTML = aval;

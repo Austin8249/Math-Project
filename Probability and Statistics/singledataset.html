@@ -4,13 +4,21 @@
 <head>
     <title>&lt;Math&gt; Single Data Set</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <!--Bootstrap css-->
     <link rel="stylesheet" href="style.css">
+    <!--Local Style sheet-->
     <script src="../jquery.min.js"></script>
+    <!--Jquery-->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <!--Bootstrap js-->
     <meta charset="ISO-8859-1">
+    <!--unicode-->
     <script src="../mspace.js"></script>
+    <!--MathML-->
     <link href="../googlefonts.css" rel="stylesheet">
+    <!--fonts-->
     <meta charset="UTF-8">
+    <!--declare unicode-->
 </head>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -25,6 +33,7 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
+        <!--Nav menu-->
         <ul class="nav navbar-nav">
             <li>
                 <a href="../algebra.html">
@@ -62,11 +71,13 @@
 <body>
     <h1>Single Data Set Tool</h1>
     <div class="form-group col-sm-4">
+        <!--input-->
         <h4> please enter the x values like this "1, 2, 3"</h4>
         <input id="xvalues" type="text" class="form-control"></input>
         <input type="button" class="btn btn-default" name="submit" value="Submit" id="submitxy"></input>
     </div>
-    <div class="col-sm-3 pull-left">
+    <!--Values for the Array-->
+    <div class="col-sm-3 pull-right panel panel-default">
         <h4>
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                 <mrow>
@@ -168,95 +179,112 @@
             </math>
         </h4>
     </div>
-    <div class="col-sm-6 pull-left">
-        <h3>
-            <u>X-Array</u>
-        </h3>
-        <h4 id="xarray"></h4>
-    </div>
-    <br>
-    <div class="col-sm-10 pull-left">
-        <div class="col-sm-2">
-            <h4>Min</h4>
-        </div>
-        <div class="col-sm-2">
-            <h4>Q1</h4>
-        </div>
-        <div class="col-sm-2">
-            <h4>Q2</h4>
-        </div>
-        <div class="col-sm-2">
-            <h4>Q3</h4>
-        </div>
-        <div class="col-sm-2">
-            <h4>Max</h4>
+    <!--Xarray-->
+    <div class="col-sm-6 pull-left panel panel-default">
+        <div class="panel-body">
+            <h3>
+                <u>X-Array</u>
+            </h3>
+            <h4 id="xarray"></h4>
         </div>
     </div>
     <br>
-    <div class="col-sm-10 pull-left">
-        <div class="col-sm-2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mn id="minVal"></mn>
-            </math>
+    <!--Q Values-->
+    <div>
+        <div class="col-sm-10 pull-left panel panel-default">
+            <div class="col-sm-2">
+                <h4>Min</h4>
+            </div>
+            <div class="col-sm-2">
+                <h4>Q1</h4>
+            </div>
+            <div class="col-sm-2">
+                <h4>Q2</h4>
+            </div>
+            <div class="col-sm-2">
+                <h4>Q3</h4>
+            </div>
+            <div class="col-sm-2">
+                <h4>Max</h4>
+            </div>
         </div>
-        <div class="col-sm-2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mn id="q1"></mn>
-            </math>
-        </div>
-        <div class="col-sm-2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mn id="q2"></mn>
-            </math>
-        </div>
-        <div class="col-sm-2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mn id="q3"></mn>
-            </math>
-        </div>
-        <div class="col-sm-2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mn id="maxVal"></mn>
-            </math>
+        <br>
+        <div class="col-sm-10 pull-left panel panel-body">
+            <div class="col-sm-2">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mn id="minVal"></mn>
+                </math>
+            </div>
+            <div class="col-sm-2">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>Coming soon</mi>
+                </math>
+            </div>
+            <div class="col-sm-2">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mn id="q2"></mn>
+                </math>
+            </div>
+            <div class="col-sm-2">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>Coming soon</mi>
+                </math>
+            </div>
+            <div class="col-sm-2">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mn id="maxVal"></mn>
+                </math>
+            </div>
         </div>
     </div>
     <script>
         (function () {
             function abc() {
+                //calling the id to pull the values
                 var xvalue = document.getElementById('xvalues').value;
+                //making the values an array
                 var xarray = JSON.parse("[" + xvalue + "]");
                 document.getElementById("xarray").innerHTML = xarray;
+
+                //counting the characters in the array
                 var n = xarray.length;
                 n = parseFloat(n);
                 document.getElementById("n").innerHTML = n;
 
+                //Declaring the Q arrays
+                var q1array = xarray;
+                var q3array = xarray;
+                var medianarray = xarray
+                var median;
 
-
+                //finding the sum of the array
                 var xsum;
-                console.log(xarray);
                 var xsum = xarray.reduce(add, 0);
 
                 function add(a, b) {
                     return a + b;
                 }
                 var xsum = parseFloat(xsum);
-
-
                 var x2sum = 0;
                 for (var i = 0; i < xarray.length; i++) {
                     x2sum += Math.pow(xarray[i], 2);
                 }
                 var x2sum = parseFloat(x2sum);
 
+                //finding sigma
                 var s2 = ((x2sum - (Math.pow(xsum, 2) / n))) / (n - 1);
                 var sigma2 = ((x2sum - (Math.pow(xsum, 2) / n))) / n;
                 var s = Math.sqrt(s2);
                 var sigma = Math.sqrt(sigma2);
 
+                //finding the range
                 var maxVal = Math.max.apply(Math, xarray);
                 var minVal = Math.min.apply(Math, xarray);
+
+                //finding the mean
                 var xbar = xsum / n;
 
+                //finding the mode
                 function mode(xarray) {
                     if (xarray.length <= 1)
                         return null;
@@ -278,124 +306,58 @@
                     return maxEl;
                 }
                 var mode = mode(xarray);
-                var median;
-                var medianarray = xarray
+
+                //getting the Median Array
                 if (n >= 3) {
                     medianarray.shift();
                     medianarray.pop();
                     getMedian(medianarray);
-
                 } else if (n === 2) {
                     median = ((medianarray[0] + medianarray[1]) / n);
-
                 } else {
                     median = medianarray[0];
-
                 }
 
+                //Getting the Median
                 function getMedian(medianarray) {
                     if (medianarray.length >= 3) {
                         medianarray.shift();
                         medianarray.pop();
-
-
                         getMedian(medianarray);
                     } else if (medianarray.length == 2) {
-
                         median = ((medianarray[0] + medianarray[1]) / 2);
-
                     } else {
                         median = medianarray[0];
-
                     }
                 }
-                /*var q1value = document.getElementById('xvalues').value;
-                var q1array = JSON.parse("[" + xvalue + "]");
-                var Q1;
-                var new_q1array = q1array.filter(function (x) {
-                    return x >= median;
-                });
-                console.log(new_q1array);
-
-
-                if (new_q1array.length >= 3) {
-                    new_q1array.shift();
-                    new_q1array.pop();
-                    getMedian(new_q1array);
-
-                } else if (new_q1array.length === 2) {
-                    Q1 = ((new_q1array[0] + new_q1array[1]) / n);
-
-                } else {
-                    Q1 = new_q1array[0];
-
+                /*
+                //Getting the Q1 Array
+                function getQArray(value) {
+                    return value > median;
                 }
+                var q1array = q1array.filter(getQArray);
 
-                function getMedian(new_q1array) {
-                    if (new_q1array.length >= 3) {
-                        new_q1array.shift();
-                        new_q1array.pop();
-
-
-                        getMedian(new_q1array);
-                    } else if (new_q1array.length == 2) {
-
-                        Q1 = ((new_q1array[0] + new_q1array[1]) / 2);
-
+                //Getting the Q1 Value
+                if (q1array.value > median){
+                    getQ(q1array);
+                }
+                function getQ(q1array) {
+                    q1array = q1array.shift;
+                    if (q1array.length >= 3) {
+                        q1array.shift();
+                        q1array.pop();
+                        getQ(q1array);
+                    } else if (q1array.length == 2) {
+                        q1val = ((q1array[0] + q1array[1]) / 2);
+                        console.log(q1val);
                     } else {
-                        Q1 = new_q1array[0];
-
+                        q1val = q1array[0];
                     }
                 }
+
+                console.log(q1array);
                 */
-
-
-                //if the array value is greater than or equal to the median it should be removed and then the get median can be applied to the remaining values
-                /*var q3value = document.getElementById('xvalues').value;
-                var q3array = JSON.parse("[" + xvalue + "]");
-                var Q3;
-                var new_q3array = q3array.filter(function (x) {
-                    return x <= median;
-                });
-                console.log(new_q3array);
-
-
-                var medianarray = xarray
-                if (n >= 3) {
-                    medianarray.shift();
-                    medianarray.pop();
-                    getMedian(medianarray);
-
-                } else if (n === 2) {
-                    median = ((medianarray[0] + medianarray[1]) / n);
-
-                } else {
-                    median = medianarray[0];
-
-                }
-
-                function getMedian(medianarray) {
-                    if (medianarray.length >= 3) {
-                        medianarray.shift();
-                        medianarray.pop();
-
-
-                        getMedian(medianarray);
-                    } else if (medianarray.length == 2) {
-
-                        median = ((medianarray[0] + medianarray[1]) / 2);
-
-                    } else {
-                        median = medianarray[0];
-
-                    }
-                }
-                */
-
-
-
-                //if the array value is less than or equal to the median it should be removed and then the get median can be applied to the remaining values
-
+                //rounding
                 var xbar = Math.round(xbar * 100) / 100;
                 var xsum = Math.round(xsum * 100) / 100;
                 var x2sum = Math.round(x2sum * 100) / 100;
@@ -404,7 +366,8 @@
                 var s = Math.round(s * 1000) / 1000;
                 var sigma = Math.round(sigma * 1000) / 1000;
 
-                //document.getElementById("q1").innerHTML = Q1;
+                //sending values to html
+                //document.getElementById("q1").innerHTML = q1val;
                 document.getElementById("q2").innerHTML = median;
                 //document.getElementById("q3").innerHTML = Q3;
                 document.getElementById("minVal").innerHTML = minVal;

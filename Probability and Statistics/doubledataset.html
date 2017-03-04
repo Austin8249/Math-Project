@@ -238,7 +238,7 @@
 
                 var xbar = xsum / n;
                 var ybar = ysum / n;
-
+                console.log(xbar, ybar);
 
                 var b = rtop / Math.pow(rleft, 2);
                 var a = ybar - (b * xbar);
@@ -256,6 +256,8 @@
                 //console.log("b=" + b);
                 var xsum = Math.round(xsum * 100) / 100;
                 var ysum = Math.round(ysum * 100) / 100;
+                var xbar = Math.round(xbar * 100) / 100;
+                var ybar = Math.round(ybar * 100) / 100;
                 var x2sum = Math.round(x2sum * 100) / 100;
                 var y2sum = Math.round(y2sum * 100) / 100;
                 var xysum = Math.round(xysum * 100) / 100;
